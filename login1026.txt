@@ -1,0 +1,66 @@
+qqbot_port, qqbot_num. qqbot_mailauth: 1026
+qqbot_mailauth: lcnvnssnybdybffc
+qqbot_num: 1039598173
+[2018-05-04 09:59:57] [INFO] QQBot-v2.3.10
+[2018-05-04 09:59:57] [INFO] Python 2.7.3
+[2018-05-04 09:59:57] [INFO] 工作目录：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026
+[2018-05-04 09:59:57] [INFO] 配置文件：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/v2.3.conf
+[2018-05-04 09:59:57] [INFO] 用户名：无
+[2018-05-04 09:59:57] [INFO] 登录方式：自动（qq=1039598173）
+[2018-05-04 09:59:57] [INFO] 命令行服务器端口号：1026
+[2018-05-04 09:59:57] [INFO] 二维码服务器 ip ：无
+[2018-05-04 09:59:57] [INFO] 二维码服务器端口号：无
+[2018-05-04 09:59:57] [INFO] 用于接收二维码的邮箱账号：1039598173@qq.com
+[2018-05-04 09:59:57] [INFO] 邮箱服务授权码：******
+[2018-05-04 09:59:57] [INFO] 以文本模式显示二维码：否
+[2018-05-04 09:59:57] [INFO] 调试模式：关闭
+[2018-05-04 09:59:57] [INFO] 掉线后自动重启：是
+[2018-05-04 09:59:57] [INFO] 后台模式（daemon 模式）：是
+[2018-05-04 09:59:57] [INFO] 启动方式：快速启动（登录成功后立即启动）
+[2018-05-04 09:59:57] [INFO] 插件目录1：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/plugins
+[2018-05-04 09:59:57] [INFO] 启动时需要加载的插件：['qqbot.plugins.sampleslots', 'qqbot.plugins.schedrestart']
+[2018-05-04 09:59:57] [INFO] 成功：加载插件 qqbot.plugins.sampleslots（回调函数['onUpdate', 'onPlug', 'onInterval', 'onStartupComplete', 'onQrcode', 'onUnplug', 'onInit', 'onQQMessage', 'onExit']、定时任务[]）
+[2018-05-04 09:59:57] [INFO] 成功：加载插件 qqbot.plugins.schedrestart（回调函数['onPlug', 'onUnplug']、定时任务[]）
+[2018-05-04 09:59:57] [INFO] 开始自动登录...
+[2018-05-04 09:59:57] [INFO] 成功从文件 "/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/v2.3-py2-1039598173.pickle" 中恢复登录信息
+[2018-05-04 10:00:00] [WARNING] 自动登录失败，原因：上次保存的登录信息已过期
+[2018-05-04 10:00:00] [INFO] 开始手动登录...
+[2018-05-04 10:00:00] [INFO] 已获取二维码
+[2018-05-04 10:00:01] [INFO] 已将二维码发送至邮箱1039598173@qq.com
+[2018-05-04 10:00:03] [INFO] 等待二维码扫描及授权...
+[2018-05-04 10:00:18] [INFO] 二维码已扫描，等待授权...
+[2018-05-04 10:00:21] [INFO] 已获授权
+[2018-05-04 10:00:21] [INFO] 已获取ptwebqq
+qqbot_port, qqbot_num. qqbot_mailauth: 1026
+qqbot_mailauth: lcnvnssnybdybffc
+qqbot_num: 1039598173
+[2018-05-04 10:00:38] [INFO] QQBot-v2.3.10
+[2018-05-04 10:00:38] [INFO] Python 2.7.3
+[2018-05-04 10:00:38] [INFO] 工作目录：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026
+[2018-05-04 10:00:38] [INFO] 配置文件：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/v2.3.conf
+[2018-05-04 10:00:38] [INFO] 用户名：无
+[2018-05-04 10:00:38] [INFO] 登录方式：自动（qq=1039598173）
+[2018-05-04 10:00:38] [INFO] 命令行服务器端口号：1026
+[2018-05-04 10:00:38] [INFO] 二维码服务器 ip ：无
+[2018-05-04 10:00:38] [INFO] 二维码服务器端口号：无
+[2018-05-04 10:00:38] [INFO] 用于接收二维码的邮箱账号：1039598173@qq.com
+[2018-05-04 10:00:38] [INFO] 邮箱服务授权码：******
+[2018-05-04 10:00:38] [INFO] 以文本模式显示二维码：否
+[2018-05-04 10:00:38] [INFO] 调试模式：关闭
+[2018-05-04 10:00:38] [INFO] 掉线后自动重启：是
+[2018-05-04 10:00:38] [INFO] 后台模式（daemon 模式）：是
+[2018-05-04 10:00:38] [INFO] 启动方式：快速启动（登录成功后立即启动）
+[2018-05-04 10:00:38] [INFO] 插件目录1：/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/plugins
+[2018-05-04 10:00:38] [INFO] 启动时需要加载的插件：['qqbot.plugins.sampleslots', 'qqbot.plugins.schedrestart']
+[2018-05-04 10:00:38] [INFO] 成功：加载插件 qqbot.plugins.sampleslots（回调函数['onUpdate', 'onPlug', 'onInterval', 'onStartupComplete', 'onQrcode', 'onUnplug', 'onInit', 'onQQMessage', 'onExit']、定时任务[]）
+[2018-05-04 10:00:38] [INFO] 成功：加载插件 qqbot.plugins.schedrestart（回调函数['onPlug', 'onUnplug']、定时任务[]）
+[2018-05-04 10:00:38] [INFO] 开始自动登录...
+[2018-05-04 10:00:38] [INFO] 成功从文件 "/home/ubuntu8/yumingming/xnr1/xnr/static/images/QQ/1026/v2.3-py2-1039598173.pickle" 中恢复登录信息
+[2018-05-04 10:00:42] [WARNING] 自动登录失败，原因：上次保存的登录信息已过期
+[2018-05-04 10:00:42] [INFO] 开始手动登录...
+[2018-05-04 10:00:42] [INFO] 已获取二维码
+[2018-05-04 10:00:43] [INFO] 已将二维码发送至邮箱1039598173@qq.com
+[2018-05-04 10:00:45] [INFO] 等待二维码扫描及授权...
+[2018-05-04 10:00:57] [INFO] 已获授权
+[2018-05-04 10:00:57] [INFO] 已获取ptwebqq
+[2018-05-04 10:03:29] [ERROR] 第5次请求“http://s.web2.qq.com/api/getvfwebqq”时出现 网络错误 HTTPConnectionPool(host='s.web2.qq.com', port=80): Read timed out. (read timeout=30), html=''

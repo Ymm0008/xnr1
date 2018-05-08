@@ -64,13 +64,16 @@ def update_opnion_corpus(corpus_id):
 ###redis
 def spcific_opinion_corpus_expand(task):
     origin_keyword = task['corpus_name']
-    
+    print 'origin_keyword::',origin_keyword
     #step2：对领域词进行词扩充
-    keywords_list = keywords_expand(origin_keyword)
+    # keywords_list = keywords_expand(origin_keyword)
+    # print 'keywords_list::',keywords_list
 
     #step3:根据师兄算法进行语料扩充与积累
     #step4：将语料积累结果写入文件
-    task_mark = get_weibo_text(keywords_list,task['corpus_name'])
+    # task_mark = get_weibo_text(keywords_list,task['corpus_name'])
+    task_mark = get_weibo_text(origin_keyword,task['corpus_name'])
+
     print 'task_mark:',task_mark
     #step5:如果写入文件成功且，则更新状态为1
     if task_mark == 1:
@@ -96,4 +99,7 @@ def opnionn_corpus_expand():
 
 
 if __name__ == '__main__':
+    start_time = int(time.time())
     opnionn_corpus_expand()
+    end_time = int(time.time())
+    print 'cost_time::',end_time - start_time

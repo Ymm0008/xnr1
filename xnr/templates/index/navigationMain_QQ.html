@@ -485,10 +485,11 @@
     });
 
     //虚拟人列表
+    var admin='{{g.user}}';
     var oneTrue=1,sameID='';
     $.ajax({
         type: 'GET',
-        url: "/qq_xnr_manage/show_qq_xnr/",
+        url: "/qq_xnr_manage/show_qq_xnr/?submitter="+admin,
         async: true,
         dataType: "json",
         success: function (data) {

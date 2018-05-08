@@ -482,10 +482,11 @@
     });
 
     //虚拟人列表--更改为微信
+    var admin='{{g.user}}';
     var oneTrue=1,sameID='';
     $.ajax({
         type: 'GET',
-        url: "/wx_xnr_manage/show/",
+        url: "/wx_xnr_manage/show/?submitter="+admin,
         async: true,
         dataType: "json",
         success: function (data) {

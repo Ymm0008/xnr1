@@ -494,6 +494,11 @@ function postYES22(data) {
 var roadInforurl='/system_manage/lookup_xnr_relation/?origin_platform=weibo&origin_xnr_user_no='+xnrUser;
 public_ajax.call_request('get',roadInforurl,roadInfor);
 function roadInfor(data) {
+    if(data==''){
+        $('#sameRoad .fblist .fbName').html('暂无相同通道下虚拟人');
+        $('#sameRoad .twlist .twName').html('暂无相同通道下虚拟人');
+        return false;
+    }
     var data=data[0];
     //nameAndGroup(data['qq_xnr_name'],data['qq_xnr_user_no'],'#sameRoad .QQlist .qqName',data['qq_groups'],'#sameRoad .QQlist .qqGroup')
     //nameAndGroup(data['weixin_xnr_name'],data['weixin_xnr_user_no'],'#sameRoad .wxlist .weixinName',data['weixin_groups'],'#sameRoad .wxlist .weixinGroup')

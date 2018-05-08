@@ -46,7 +46,7 @@ from xnr.parameter import DAILY_INTEREST_TOP_USER,DAILY_AT_RECOMMEND_USER_TOP,TO
                         HOT_AT_RECOMMEND_USER_TOP,HOT_EVENT_TOP_USER,BCI_USER_NUMBER,USER_POETRAIT_NUMBER,\
                         MAX_SEARCH_SIZE,domain_ch2en_dict,topic_en2ch_dict,topic_ch2en_dict,FRIEND_LIST,\
                         FOLLOWERS_LIST,IMAGE_PATH,WHITE_UID_PATH,WHITE_UID_FILE_NAME,TOP_WEIBOS_LIMIT_DAILY,\
-                        daily_ch2en,TOP_ACTIVE_SOCIAL,task_source_ch2en
+                        daily_ch2en,TOP_ACTIVE_SOCIAL,task_source_ch2en, WORD2VEC_PATH
 from save_to_weibo_xnr_flow_text import save_to_xnr_flow_text
 from xnr.utils import uid2nick_name_photo,xnr_user_no2uid,judge_follow_type,judge_sensing_sensor,\
                         get_influence_relative
@@ -555,22 +555,23 @@ def get_bussiness_recomment_tweets(xnr_user_no,sort_item):
     
     monitor_keywords = get_results['monitor_keywords']
     monitor_keywords_list = monitor_keywords.split(',')
+    expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
     
     if sort_item == 'timestamp':
         sort_item_new = 'timestamp'
-        es_results = get_tweets_from_flow(monitor_keywords_list,sort_item_new)
+        es_results = get_tweets_from_flow(expand_monitor_keywords_list,sort_item_new)
     elif sort_item == 'sensitive_info':
         sort_item_new = 'sensitive'
-        es_results = get_tweets_from_flow(monitor_keywords_list,sort_item_new)
+        es_results = get_tweets_from_flow(expand_monitor_keywords_list,sort_item_new)
     elif sort_item == 'sensitive_user':
         sort_item_new = 'sensitive'
-        es_results = get_tweets_from_user_portrait(monitor_keywords_list,sort_item_new)  
+        es_results = get_tweets_from_user_portrait(expand_monitor_keywords_list,sort_item_new)  
     elif sort_item == 'influence_info':
         sort_item_new = 'retweeted'
-        es_results = get_tweets_from_flow(monitor_keywords_list,sort_item_new)
+        es_results = get_tweets_from_flow(expand_monitor_keywords_list,sort_item_new)
     elif sort_item == 'influence_user':
         sort_item_new = 'user_index'
-        es_results = get_tweets_from_bci(monitor_keywords_list,sort_item_new)
+        es_results = get_tweets_from_bci(expand_monitor_keywords_list,sort_item_new)
         
     return es_results
 
@@ -1301,6 +1302,16 @@ def get_friends_list(recommend_set_list):
 
     return friend_list[:500]
 
+
+def keywords_expand(keywords):
+    keywords_list = []
+    model = gensim.models.KeyedVectors.load_word2vec_format(WORD2VEC_PATH,binary=True)
+    for word in keywords:
+        simi_list = model.most_similar(word,topn=20)
+        for simi_word in simi_list:
+            keywords_list.append(simi_word[0])
+    return keywords_list
+
 ## 主动社交- 相关推荐
 def get_related_recommendation(task_detail):
     
@@ -1315,9 +1326,11 @@ def get_related_recommendation(task_detail):
     
     monitor_keywords_list = monitor_keywords.split(',')
 
+    expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
+
     nest_query_list = []
-    print 'monitor_keywords_list::',monitor_keywords_list
-    for monitor_keyword in monitor_keywords_list:
+    #print 'monitor_keywords_list::',expand_monitor_keywords_list
+    for monitor_keyword in expand_monitor_keywords_list:
         #print 'monitor_keyword::::',monitor_keyword
         nest_query_list.append({'wildcard':{'keywords_string':'*'+monitor_keyword+'*'}})
     
@@ -1359,7 +1372,7 @@ def get_related_recommendation(task_detail):
         }
 
         es_rec_result = es_flow_text.search(index=flow_text_index_name,doc_type='text',body=query_body_rec)['aggregations']['uid_list']['buckets']
-        print 'es_rec_result///',es_rec_result
+        #print 'es_rec_result///',es_rec_result
         for item in es_rec_result:
             uid = item['key']
             uid_list.append(uid)

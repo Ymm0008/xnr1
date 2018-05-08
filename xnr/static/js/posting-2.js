@@ -67,10 +67,14 @@ $('#create').on('click',function () {
 });
 function reshIntelligent(data) {
     var f='操作失败。';
-    if (data=='true'){
+    if (data){
         f='操作成功。';
-    }else if (data== 'exists'){
-        f='请更换一个事件名称。';
+        if (data== 'exists'){
+            f='请更换一个事件名称。';
+        }
+        setTimeout(function () {
+            public_ajax.call_request('get',intelligent_writing_url,intelligentList);
+        },300)
     }
     $('#pormpt p').text(f);
     $('#pormpt').modal('show');
@@ -207,8 +211,8 @@ function intelligentList(data) {
                     }else {
                         var t=row.compute_status;
                         if (t==0){status='尚未计算'}else
-                        if (t==1){status='正在计算'}else
-                        if (t==2){status='计算完成'}else
+                        if (t==1||t==2||t==3){status='正在计算'}else
+                        if (t==4){status='计算完成'}else
                         {status='未知';}
                     };
                     return status;

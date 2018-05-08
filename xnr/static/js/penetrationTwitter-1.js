@@ -171,18 +171,17 @@ function penetration_7day(data) {
     $('#near_7_day p').show();
     var nearTime=[],nearData=[];
     if (data.length==0){
-        $('#near_7_day h2').remove();
         $('#near_7_day p').slideUp(700);
-        $('#near_7_day').height('40px').append('<h2 style="width:100%;text-align:center;">趋势图暂无数据</h2>');
+        $('#near_7_day').css({textAlign:"center",lineHeight:"400px",fontSize:'24px'}).text('趋势图暂无数据');
         return false;
     }else {
-        $('#near_7_day').height('400px');
         $.each(data,function (index,item) {
             nearTime.push(item['date_time'][0]);
             var hu=item['penetration']||item['influence'];
             nearData.push(hu[0]);
         })
-    };
+    }
+    echarts.init(document.getElementById('near_7_day')).dispose();
     var myChart = echarts.init(document.getElementById('near_7_day'),'dark');
     var option = {
         backgroundColor:'transparent',

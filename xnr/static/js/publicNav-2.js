@@ -187,6 +187,8 @@ function comMent(_this,type){
 //点赞  喜欢
 function thumbs(_this) {
     var MFT = $(_this).parents('.center_rel').find('.'+mft_id).text();
+    console.log($(_this).parents('.center_rel'))
+    console.log(MFT)
     var time=$(_this).parents('.center_rel').find('.timestamp').text();
     var likePost_url='/'+urlFirst_zpd+'/like_operate/?'+mft_id+'='+MFT+'&xnr_user_no='+ID_Num+'&timestamp='+time;
     if (loadingType=='faceBook'){
