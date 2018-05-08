@@ -87,7 +87,7 @@ def get_users(xnr_user_no,nodes=None):
         uid_comment = json.loads(i['_source']['uid_comment'])
         max_count = max([int(n) for n in uid_comment.values()])
         G.add_weighted_edges_from([(i['_source']['uid'],j,float(uid_comment[j])/max_count) for j in uid_comment.keys() if j != i['_source']['uid'] and j and i['_source']['uid']])
-    
+
     return G 
 
 
@@ -98,6 +98,7 @@ def find_from_uid_list(xnr_user_no,nodes=None,path=PATH,file_name=FILE_NAME,com_
         G = get_users(xnr_user_no,nodes)
     else:
         G = G.subgraph(nodes,xnr_user_no)
+        
 
 
     node_clus = nx.clustering(G) #50w

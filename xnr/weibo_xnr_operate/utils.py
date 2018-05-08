@@ -6,6 +6,7 @@ import sys
 import random
 import base64
 import re
+import gensim
 
 #reload(sys)
 #sys.path.append('../../')
@@ -218,7 +219,7 @@ def get_daily_recommend_tweets(theme,sort_item):
     else:
         now_ts = int(time.time())
 
-    datetime = ts2datetime(now_ts)
+    datetime = ts2datetime(now_ts-24*3600)
 
     index_name = daily_interest_index_name_pre +'_'+ datetime
 
@@ -555,7 +556,13 @@ def get_bussiness_recomment_tweets(xnr_user_no,sort_item):
     
     monitor_keywords = get_results['monitor_keywords']
     monitor_keywords_list = monitor_keywords.split(',')
+<<<<<<< HEAD
     expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
+=======
+
+    #expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
+
+>>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
     
     if sort_item == 'timestamp':
         sort_item_new = 'timestamp'
@@ -1302,7 +1309,10 @@ def get_friends_list(recommend_set_list):
 
     return friend_list[:500]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
 def keywords_expand(keywords):
     keywords_list = []
     model = gensim.models.KeyedVectors.load_word2vec_format(WORD2VEC_PATH,binary=True)
@@ -1325,12 +1335,22 @@ def get_related_recommendation(task_detail):
     monitor_keywords = es_result['monitor_keywords']
     
     monitor_keywords_list = monitor_keywords.split(',')
+    print 'monitor_keywords_list...',monitor_keywords_list
+    
+    #expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
 
     expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
 
     nest_query_list = []
+<<<<<<< HEAD
     #print 'monitor_keywords_list::',expand_monitor_keywords_list
     for monitor_keyword in expand_monitor_keywords_list:
+=======
+    #print 'expand_monitor_keywords_list::',expand_monitor_keywords_list
+    
+
+    for monitor_keyword in monitor_keywords_list:
+>>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
         #print 'monitor_keyword::::',monitor_keyword
         nest_query_list.append({'wildcard':{'keywords_string':'*'+monitor_keyword+'*'}})
     
@@ -1383,6 +1403,15 @@ def get_related_recommendation(task_detail):
                 avg_sort_uid_dict[uid]['sort_item_value'] = int(item['avg_sort']['value'])
             else:
                 avg_sort_uid_dict[uid]['sort_item_value'] = round(item['avg_sort']['value'],2)
+
+        #with open("recommend_uid.txt","wb") as f:
+        # ftxt = open('recommend_uid.txt','w')  
+
+        # for uid in uid_list:
+        #     ftxt.write(uid+"\n")
+
+        #print 'uid_list...',uid_list
+
 
     else:
         if S_TYPE == 'test':

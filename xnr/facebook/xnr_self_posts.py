@@ -81,13 +81,13 @@ for xnr in xnrData:
 
 	for div in driver.find_elements_by_xpath('//div[@id="recent_capsule_container"]/ol/div'):
 		for post in div.find_elements_by_xpath('./div'):
-			# xnr_user_no = xnr['xnr_user_no']
-			xnr_user_no = 'FXNR0003'
+			xnr_user_no = xnr['xnr_user_no']
+			# xnr_user_no = 'FXNR0003'
 			uid = xnr['uid']
-			uid = "100023849442394"
+			# uid = "100023849442394"
 			try:
-				# text = post.find_element_by_xpath('./div/div[2]/div/div[2]/div[2]//p').text
-				text = random.choice([u"emmmm",u"今天风真大",u"哈哈哈哈哈",u"宿命是上帝为你写的剧本",u"教会你如何去爱去恨",u"天堂为每个人都打开了大门",u"善恶是门票不分身份",u"希望是指南针信仰是扬起的船帆",u"我听说这个时代好像需要信仰",u"那你信什么",u"上帝",u"金钱",u"因特网"])
+				text = post.find_element_by_xpath('./div/div[2]/div/div[2]/div[2]//p').text
+				# text = random.choice([u"emmmm",u"今天风真大",u"哈哈哈哈哈",u"宿命是上帝为你写的剧本",u"教会你如何去爱去恨",u"天堂为每个人都打开了大门",u"善恶是门票不分身份",u"希望是指南针信仰是扬起的船帆",u"我听说这个时代好像需要信仰",u"那你信什么",u"上帝",u"金钱",u"因特网"])
 			except:
 				try:
 					text = post.find_element_by_xpath('./div/div[3]/div/div[2]/div[2]//p').text
@@ -116,8 +116,8 @@ for xnr in xnrData:
 						fid = re.findall(re.compile('posts/(\d+)'),post.find_element_by_xpath('./div/div[3]/div/div[2]/div[1]/div[1]/div/div[2]/div/div/div[2]/div/span[3]/span/a').get_attribute('href'))[0]
 			ip = None
 			try:
-				# timestamp = post.find_element_by_xpath('./div/div[2]/div/div[2]/div[1]/div[1]/div/div[2]/div/div/div[2]/div/span[3]/span/a/abbr').get_attribute('data-utime')
-				timestamp = int(time.mktime(time.strptime(random.choice(['2017-10-15','2017-10-16','2017-10-17','2017-10-18','2017-10-19','2017-10-20','2017-10-21','2017-10-22','2017-10-23','2017-10-24','2017-10-25']),"%Y-%m-%d")))
+				timestamp = post.find_element_by_xpath('./div/div[2]/div/div[2]/div[1]/div[1]/div/div[2]/div/div/div[2]/div/span[3]/span/a/abbr').get_attribute('data-utime')
+				# timestamp = int(time.mktime(time.strptime(random.choice(['2017-10-15','2017-10-16','2017-10-17','2017-10-18','2017-10-19','2017-10-20','2017-10-21','2017-10-22','2017-10-23','2017-10-24','2017-10-25']),"%Y-%m-%d")))
 			except:
 				timestamp = post.find_element_by_xpath('./div/div[3]/div/div[2]/div[1]/div[1]/div/div[2]/div/div/div[2]/div/span[3]/span/a/abbr').get_attribute('data-utime')
 			for each in driver.find_elements_by_xpath('//div[@class="_50f3"]'):
