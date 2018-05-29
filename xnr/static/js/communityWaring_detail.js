@@ -16,7 +16,7 @@ $('.choosetime .demo-label input').on('click',function () {
         $(this).parents('.choosetime').find('#sure').hide();
         var weiboUrl='/weibo_xnr_community/get_community_warning/?xnr_user_no='+ID_Num+
             '&community_id='+communityId+'&start_time='+getDaysBefore(_val)+'&end_time='+time2;
-        public_ajax.call_request('GET',communityDetails_url,communityDetailsFun);
+        public_ajax.call_request('GET',weiboUrl,communityDetailsFun);
     }
 });
 $('#sure').on('click',function () {
@@ -28,7 +28,7 @@ $('#sure').on('click',function () {
     }else {
         var weiboUrl='/weibo_xnr_community/get_community_warning/?xnr_user_no='+ID_Num+'&community_id='+communityId+
             '&start_time='+(Date.parse(new Date(s))/1000)+'&end_time='+(Date.parse(new Date(d))/1000);
-        public_ajax.call_request('GET',communityDetails_url,communityDetailsFun);
+        public_ajax.call_request('GET',weiboUrl,communityDetailsFun);
     }
 });
 //==================
@@ -72,6 +72,8 @@ function chartNum(tit,ID,peopleData,flag,starNum){
     }else {
         $.each(peopleData,function (index,item){if (item<0){relData.push(0)}else {relData.push(item)}})
     }
+    starNum=Number(starNum);
+    if(starNum<0){starNum=0}else if(starNum>4){starNum=4};
     var a='<i class="icon icon-star" style="color:#fa7d3c;"></i>  ';
     var b='<i class="icon icon-star-empty" style="color:#fa7d3c;"></i>  ';
     var str= a.repeat(starNum)+b.repeat(4-starNum);

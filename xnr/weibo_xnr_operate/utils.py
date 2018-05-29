@@ -556,14 +556,8 @@ def get_bussiness_recomment_tweets(xnr_user_no,sort_item):
     
     monitor_keywords = get_results['monitor_keywords']
     monitor_keywords_list = monitor_keywords.split(',')
-<<<<<<< HEAD
     expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
-=======
 
-    #expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
-
->>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
-    
     if sort_item == 'timestamp':
         sort_item_new = 'timestamp'
         es_results = get_tweets_from_flow(expand_monitor_keywords_list,sort_item_new)
@@ -1309,10 +1303,6 @@ def get_friends_list(recommend_set_list):
 
     return friend_list[:500]
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
 def keywords_expand(keywords):
     keywords_list = []
     model = gensim.models.KeyedVectors.load_word2vec_format(WORD2VEC_PATH,binary=True)
@@ -1342,16 +1332,7 @@ def get_related_recommendation(task_detail):
     expand_monitor_keywords_list = keywords_expand(monitor_keywords_list)
 
     nest_query_list = []
-<<<<<<< HEAD
-    #print 'monitor_keywords_list::',expand_monitor_keywords_list
-    for monitor_keyword in expand_monitor_keywords_list:
-=======
-    #print 'expand_monitor_keywords_list::',expand_monitor_keywords_list
-    
-
     for monitor_keyword in monitor_keywords_list:
->>>>>>> 0eaba61d26ebfeda2f4b80b1e4097a18381982c1
-        #print 'monitor_keyword::::',monitor_keyword
         nest_query_list.append({'wildcard':{'keywords_string':'*'+monitor_keyword+'*'}})
     
     # else:
